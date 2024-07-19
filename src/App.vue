@@ -1,19 +1,23 @@
 <template>
     <div id="app">
-        <h1>Touch Time Tracking App</h1>
-        <TimeEntry />
-        <TimeReport />
+      <router-view></router-view>
     </div>
-</template>
-
-<script>
-import TimeEntry from '../components/TimeEntry.vue'
-import TimeReport from '../components/TimeReport.vue'
-
-export default {
-    components: {
-        TimeEntry,
-        TimeReport
-    }
-}
-</script>
+  </template>
+  
+  <script>
+  export default {
+    name: 'App'
+  }
+  </script>
+  
+  <style>
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+  }
+  </style>
+  
