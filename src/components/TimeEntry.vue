@@ -49,32 +49,4 @@
   };
   </script>
   
-  <style scoped>
-  h2 {
-    color: #2c3e50;
-    margin-bottom: 20px;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  form div {
-    margin-bottom: 10px;
-  }
-  
-  button {
-    background-color: #42b983;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #38a173;
-  }
-  </style>
-  
+ 
