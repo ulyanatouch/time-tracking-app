@@ -1,21 +1,21 @@
 <template>
     <div>
       <h1>Time Reports</h1>
-      <TimeReport />
+      <ReportsComponent />
     </div>
   </template>
   
   <script>
-  import TimeReport from '../components/TimeReport.vue';
+  import ReportsComponent from '../components/ReportsComponent.vue';
   
   export default {
     name: 'ReportsPage',
     components: {
-      TimeReport
+      ReportsComponent
     }
   };
   </script>
-  
+<!--   
   <style scoped>
   h1 {
     color: #2c3e50;
@@ -34,4 +34,4 @@
     border-radius: 5px;
   }
   </style>
-  
+   -->

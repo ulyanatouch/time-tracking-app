@@ -4,7 +4,7 @@
       <form @submit.prevent="addTimeEntry">
         <div>
           <label for="date">Date:</label>
-          <input type="date" v-model="date" required />
+          <input type="date" v-model="formattedDate" required lang="en"/>
         </div>
         <div>
           <label for="category">Category:</label>
@@ -16,27 +16,44 @@
         </div>
         <button type="submit">Add</button>
       </form>
+      <ReportsComponent />
     </div>
   </template>
   
   <script>
   import { ref, push } from "firebase/database";
   import { database } from "../firebase";
-  
+  import { format } from 'date-fns';
+  import ReportsComponent from '../components/ReportsComponent.vue';
+
   export default {
     name: 'TimeEntryComponent',
+    components: {
+    ReportsComponent
+  },
     data() {
       return {
         date: '',
         category: '',
-        hours: ''
+        hours: '',
+        formattedDate: ''
       };
     },
+    watch: {
+      date(newDate) {
+      if (newDate) {
+        this.formattedDate = format(new Date(newDate), 'yyyy-MM-dd'); 
+      } else {
+        this.formattedDate = '';
+      }
+    }
+  },
     methods: {
       addTimeEntry() {
         const timeEntryRef = ref(database, 'time-entries');
         const newEntry = {
-          date: this.date,
+          id: Date.now(),
+          date: this.formattedDate,
           category: this.category,
           hours: this.hours
         };
@@ -44,6 +61,7 @@
         this.date = '';
         this.category = '';
         this.hours = '';
+        this.formattedDate = '';
       }
     }
   };
